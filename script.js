@@ -86,9 +86,7 @@ function startCalculation() {
 let startCalcBottun = document.getElementById("startCalc");
 startCalcBottun.addEventListener("click", function(){
   const prefNames = startCalculation(); //prefNameに配列が入る
-  alert(prefNames);
   const centerPoint = getCenterPoint(prefNames); //centerPointに中心座標が入る
-  alert(centerPoint);
 
   // const centerPointOutput = document.createElement("h3");
   // centerPointOutput.innerText = centerPoint;
@@ -104,20 +102,97 @@ startCalcBottun.addEventListener("click", function(){
 
 })
 
+// 地域のボタンを押すと県名のボタンリストがでる
+// const prefListbutton = document.getElementById("tohoku");
+const areaButton = document.getElementsByClassName("area");
+for (const area of areaButton) { //全てのボタンに設定する
+
+  area.addEventListener("click", function(){
+
+    checkCondition();
+
+    // idに対して-listを付けて、tohoku ⇒ tohoku-list が探せるようにする もっといい方法ありそう
+    const areaName = area.id + "-list";
+   
+    const prefList = document.getElementById(areaName); // 押した地方の県リスト
+    const overlay = document.getElementById("overlay"); // 後ろの黒塗り用
+
+     // 地方のボタンから県名のボタンに変わる
+    prefList.style.display = "block"; // 県リストのボタン表示
+    overlay.style.display = "block"; // 黒塗り実施
 
 
-// 取得した座標から出力する
-function output(centerPoint, nearestPref) {
-   // alert(nearestPref.name);
-  const centerPointOutput = document.createElement("p");
-  const centerPrefOutput = document.createElement("h3");
-  console.log(centerPointOutput)
-  centerPointOutput.innerHTML =
-    `<p>中心座標は... ${centerPoint} </p>
-    <a href = https://www.google.com/maps/search/?api=1&query=${centerPoint}>GoogleMapで表示する</a>`;
-  centerPrefOutput.innerText = `一番中心に近いのは... ${nearestPref}`
-  document.getElementsByTagName("h3")[0].appendChild(centerPointOutput);
-  document.getElementsByTagName("h3")[0].appendChild(centerPrefOutput);
+    function getPrefName(){
+      console.log(pref.innerText); //押した県名が取得できる
+      checkCondition();
+      // checkCondition機能は何人目が未記入かを返すので、未記入のフォームに都道府県を入れる
+      select[checkCondition() - 1].value = pref.innerText;
+
+      //画面を戻す
+      prefList.style.display = "none";
+      overlay.style.display = "none"; 
+      pref.removeEventListener(getPrefName());
+      checkCondition();
+    }
+
+
+    //それぞれの県ボタンに機能を付与する
+    for (const pref of prefList.getElementsByTagName("button")) {
+      pref.addEventListener("click", function(){
+        console.log(pref.innerText); //押した県名が取得できる
+        checkCondition();
+        // checkCondition機能は何人目が未記入かを返すので、未記入のフォームに都道府県を入れる
+        select[checkCondition() - 1].value = pref.innerText;
+
+        //画面を戻す
+        prefList.style.display = "none";
+        overlay.style.display = "none"; 
+        pref.removeEventListener()
+        checkCondition();
+      })
+
+      checkCondition();
+    }
+    // for ()
+
+    // prefListbutton.style.display = "block";
+
+  })
+}
+
+
+// 地図から選択する際に、下のフォームの中から-選択してください-のある場所が何人目か調べる
+function checkCondition() {
+  let num = 1
+  for (const selectBoxData of select){
+    if (selectBoxData.value === "-選択してください-") {
+      console.log(`${num}人目が未記入`)
+      document.getElementById("textbox").innerText = `${num}人目の都道府県を選択してください`;
+      return num;
+    } else {
+      console.log(selectBoxData);
+      selectBoxData.removeEventListener("click",copyForm)
+      num++;
+    }
+  } 
+  copyForm();
+  // const newForm = formTemprate.cloneNode(true); 
+  // forms[num].appendChild(newForm);
+}
+console.log(formTemprate);
+console.log(forms[1]);
+const newForm = formTemprate.cloneNode(true);
+console.log(newForm);
+
+function copyFormTest(num) {
+  const newForm = formTemprate.cloneNode(true); 
+  forms[num].appendChild(newForm);
+  select[num].addEventListener("click", copyForm) //copyform機能を付け足す
+  select[num].addEventListener("click", checkCondition) //copyform機能を付け足す
+  // select[i - 1].removeEventListener("click",copyForm)
+  // console.log(forms[i].getElementsByTagName("label")[0].innerText);
+  // forms[i].getElementsByTagName("label")[0].innerText = `${i + 1}人目`;
+  // console.log(select[i].value)
 }
 
 
@@ -127,16 +202,38 @@ function copyForm() {
   const newForm = forms[i].cloneNode(true); 
   forms[i].appendChild(newForm);
   i++;
-  select[i].addEventListener("click", copyForm)
+  select[i].addEventListener("click", copyForm) //copyform機能を付け足す
+  select[i].addEventListener("click", checkCondition) //copyform機能を付け足す
   select[i - 1].removeEventListener("click",copyForm)
   console.log(forms[i].getElementsByTagName("label")[0].innerText);
   forms[i].getElementsByTagName("label")[0].innerText = `${i + 1}人目`;
   console.log(select[i].value)
+  checkCondition()
 }
+console.log(select[i].value);
 
+select[i].value !== "-選択してください-"
 
+//最初にcopyform機能を2人目に入れておく
+select[1].addEventListener("click", copyForm); 
 
-select[i].addEventListener("click", copyForm); //i番目のフォームを選択すると
+//最初に1人目と2人目にcheckCondition機能を入れておく
+select[0].addEventListener("click", checkCondition) 
+select[1].addEventListener("click", checkCondition) 
+
+// 取得した座標から出力する
+function output(centerPoint, nearestPref) {
+  // alert(nearestPref.name);
+ const centerPointOutput = document.createElement("p");
+ const centerPrefOutput = document.createElement("h3");
+ console.log(centerPointOutput)
+ centerPointOutput.innerHTML =
+   `<p>中心座標は... ${centerPoint} </p>
+   <a href = https://www.google.com/maps/search/?api=1&query=${centerPoint}>GoogleMapで表示する</a>`;
+ centerPrefOutput.innerText = `一番中心に近いのは... ${nearestPref}`
+ document.getElementsByTagName("h3")[0].appendChild(centerPointOutput);
+ document.getElementsByTagName("h3")[0].appendChild(centerPrefOutput);
+}
 
 
 
@@ -167,34 +264,6 @@ function selectPref() {
 
 	document.getElementById("span1").textContent = str; 
 }
-
-
-
-// 入力された都道府県を配列として得る
-const getPrefs = []; //[愛知県, 北海道] のイメージ 
-
-// function updateButton() {
-//   if (button.value === "愛知県") {
-//     button.value = "愛知県";
-//     paragraph.textContent = "愛知県";
-//   } else {
-//     button.value = "マシンを起動";
-//     paragraph.textContent = "マシンが停止しています。";
-//   }
-// }
-
-
-
-// 「クリック」のイベントリスナーをいずれかの要素に 1 つ追加してください。その要素がクリックされたら、window.alert で "Hello!" と表示されるようにしましょう。
-
-// console.log(document.getElementsByClassName("inner-paragraph"));
-
-// let innerParagraphA = document.getElementsByClassName("inner-paragraph")[0];
-// console.log(innerParagraphA);
-
-// innerParagraphA.addEventListener("click", function(){alert("Clicked");}); //注意  addEventLisner の第２引数は関数
-
-
 
 
 // 狙う顧客

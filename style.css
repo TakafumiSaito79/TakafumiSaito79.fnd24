@@ -9,7 +9,7 @@ body {
     /* box-sizing: border-box; */
     max-height: 30%;
     width: auto;
-    margin: 0 auto;
+    margin: auto;
     display: table;
     background-color: #adf6ff;
     font-size:200%;
@@ -45,7 +45,6 @@ body {
 }
 
 #kinki{
-    /* box-sizing: border-box; */
     position: absolute;
     top:60%;
     left:45%;
@@ -53,82 +52,82 @@ body {
 }
 
 #chugoku{
-    /* box-sizing: border-box; */
-        position: absolute;
-    top:62%;
-    left:33%;
-    margin:0;
-    display: table;
+    position: absolute;
+    top:57%;
+    left:27%;
+    font-size: 100%;
 }
 
 #shikoku{
-    /* box-sizing: border-box; */
-        position: absolute;
-    top:80%;
-    left:33%;
-    margin:0;
-    display: table;
+    position: absolute;
+    top:73%;
+    left:28%;
+    font-size: 100%;
 }
 
 #kyushu{
-    /* box-sizing: border-box; */
-        position: absolute;
-    top:70%;
-    left:10%;
-    margin:0;
-    display: table;
-}
-
-/* #kyushu{
-    /* box-sizing: border-box; */
     position: absolute;
-    top:70%;
-    left:10%;
-    margin:0;
-    display: table;
+    top:65%;
+    left:2%;
+    font-size: 100%;
 }
- */
 
+.select-button{
+    left: 20%;
+}
 
+.select-button div{
+    display: none;
+    position: absolute;
+    top:40%;
+    left: 15%;
+    background: white;
+    width:70%;
+    text-align: center;
+} 
+
+#overlay{
+position: absolute;
+top: 0%;
+left: 0%;
+height: 100%;
+width: 100%;
+background: linear-gradient(rgba(0, 0, 0, .6),  rgba(0, 0, 0, .6)); 
+display: none;
+}
+
+button{
+    font-size: 100%;
+    margin: 10px;
+    padding: 5px;
+}
 
 #textbox{
     position: absolute;
-    top:0%;
-    left:15%;
+    top:10%;
+    left:5%;
     font-size:100%;
     color: red;
+    background-color: white;
 }
   
-  /* ここにルールを足していきましょう。*/
-h1 {
-    margin: auto;
+form{
+    font-size: 30px;
+}
+
+#pref-select{
+    font-size: 100%;
 }
 
 p {
     margin: auto;
-    background-color:yellow;
 }
 
-.awesome {
-    font-weight: bold;
+h3 {
+    margin: auto;
+    font-size: 200%;
 }
 
-.great {
-    font-weight: bold;
-}
-
-#d {
-    color: red;
-}
-
-span {
-    font-size: 50%;
-    color: green;
-}
-
-.great {
-    font-size: 50%;
-}
 
 /* この演習では CSS セレクタ と プロパティ を扱う練習をします。 HTML ファイルは変更しません。
 a の文字色を青色にしてください。

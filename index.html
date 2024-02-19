@@ -18,15 +18,95 @@
     <div class="japan_map">
       <img src="JapanMap.png">
       <p id="textbox">1人目の都道府県を選択してください</p>
-      <button id="tohoku">北海道・東北</button>
-      <button id="kanto">関東</button>
-      <button id="hokuriku">北陸</button>
-      <button id="chubu">中部</button>
-      <button id="kinki">近畿</button>
-      <button id="chugoku">中国</button>
-      <button id="shikoku">四国</button>
-      <button id="kyushu">九州・沖縄</button>
+      <button id="tohoku" class="area">北海道・東北</button>
+      <button id="kanto" class="area">関東</button>
+      <button id="hokuriku" class="area">北陸</button>
+      <button id="chubu" class="area">中部</button>
+      <button id="kinki" class="area">近畿</button>
+      <button id="chugoku" class="area">中国</button>
+      <button id="shikoku" class="area">四国</button>
+      <button id="kyushu" class="area">九州・沖縄</button>
+
+      <div id = overlay></div>
+
+      <div class="select-button">
+
+        <div class="pref-list" id="tohoku-list">
+          <button>北海道</button>
+          <button>青森県</button>
+          <button>岩手県</button>
+          <button>宮城県</button>
+          <button>秋田県</button>
+          <button>山形県</button>
+          <button>福島県</button>
+        </div>
+
+        <div class="pref-list" id="kanto-list">
+          <button>茨城県</button>
+          <button>栃木県</button>
+          <button>群馬県</button>
+          <button>埼玉県</button>
+          <button>千葉県</button>
+          <button>東京都</button>
+          <button>神奈川県</button>          
+        </div>
+
+        <div class="pref-list" id="hokuriku-list">
+          <button>新潟県</button>
+          <button>富山県</button>
+          <button>石川県</button>
+          <button>福井県</button>          
+        </div>
+
+        <div class="pref-list" id="chubu-list">
+          <button>山梨県</button>
+          <button>長野県</button>
+          <button>岐阜県</button>
+          <button>静岡県</button>
+          <button>愛知県</button>          
+        </div>
+
+        <div class="pref-list" id="kinki-list">
+          <button>三重県</button>
+          <button>滋賀県</button>
+          <button>京都府</button>
+          <button>大阪府</button>
+          <button>兵庫県</button>
+          <button>奈良県</button>
+          <button>和歌山県</button>          
+        </div>
+
+        <div class="pref-list" id="chugoku-list">
+          <button>鳥取県</button>
+          <button>島根県</button>
+          <button>岡山県</button>
+          <button>広島県</button>
+          <button>山口県</button>          
+        </div>
+
+        <div class="pref-list" id="shikoku-list">
+          <button>徳島県</button>
+          <button>香川県</button>
+          <button>愛媛県</button>
+          <button>高知県</button>          
+        </div>
+
+        <div class="pref-list" id="kyushu-list">
+          <button>福岡県</button>
+          <button>佐賀県</button>
+          <button>長崎県</button>
+          <button>熊本県</button>
+          <button>大分県</button>
+          <button>宮崎県</button>
+          <button>鹿児島県</button>
+          <button>沖縄県</button>
+        </div>
+
+      </div>
+
     </div>
+
+    <h2 id="formList">
 
     <form>
       <!-- <label for = "pref-select">1人目</label> -->
@@ -137,47 +217,7 @@
           <option>沖縄県</option>
         </select></br>
     </form>
-    <!-- <form>
-      <label for = "pref-select">2人目</label>
-        <select name="prefecture" id = "pref-select">
-        <option>-選択してください-</option>
-        <option>北海道</option>
-        <option>東京都</option>
-        <option>愛知県</option>
-        <option>大阪府</option>
-        <option>福岡県</option>
-        </select>
-
-        
-    </form>
-
-    <form>
-      <label for = "pref-select">3人目</label>
-        <select name="prefecture" id = "pref-select">
-        <option>-選択してください-</option>
-        <option>北海道</option>
-        <option>東京都</option>
-        <option>愛知県</option>
-        <option>大阪府</option>
-        <option>福岡県</option>
-        </select>
-
-        
-    </form>
-
-    <form>
-      <label for = "pref-select">4人目</label>
-        <select name="prefecture" id = "pref-select">
-        <option>-選択してください-</option>
-        <option>北海道</option>
-        <option>東京都</option>
-        <option>愛知県</option>
-        <option>大阪府</option>
-        <option>福岡県</option>
-        </select>
-        <p><input type="button" id="button" value="決定">あああ</p>
-        
-    </form> -->
+  </h2>
 
     <h3><input type="button" id="startCalc" value="計算開始"></h3>
 
