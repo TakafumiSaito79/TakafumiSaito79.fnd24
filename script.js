@@ -3,9 +3,8 @@
 const button = document.querySelector("select");
 const paragraph = document.querySelector("p");
 
-// button.addEventListener("click", updateButton);
 
-//使う変数一覧
+//使う変数
 const select = document.getElementsByName("prefecture");
 let forms = document.getElementsByTagName("form");
 const formTemprate = forms[0] // コピー元の最初のフォーム
@@ -64,13 +63,7 @@ const locations = [
 
 
 
-// selectButton.addEventListener("click", function(){alert(select[0].selectedIndex);}); //注意  addEventLisner の第２引数は関数
-// selectButton.addEventListener("click", function(){alert(select[0].value);}); // 決定ボタンを押すとalertに選択した値（県名）を出す
-// selectButton.addEventListener("click", function(){alert(select[0].value);}); // 決定ボタンを押すとalertに選択した値（県名）を出す
-
-
 // 全て選択完了した後に、ボタンを押すと選択された県名を配列に保存する
-
 function startCalculation() {
   const prefName = [];
   for (let i = 0; i < forms.length; i++) {
@@ -87,23 +80,12 @@ let startCalcBottun = document.getElementById("startCalc");
 startCalcBottun.addEventListener("click", function(){
   const prefNames = startCalculation(); //prefNameに配列が入る
   const centerPoint = getCenterPoint(prefNames); //centerPointに中心座標が入る
-
-  // const centerPointOutput = document.createElement("h3");
-  // centerPointOutput.innerText = centerPoint;
-  // console.log(centerPointOutput);
-  // console.log(document.getElementsByTagName("h3"));
-  // console.log(typeof document.getElementsByTagName("h3"));
   const nearestPref = getNearestPref(centerPoint); //centerPointに一番近い県名を出す
   output(centerPoint, nearestPref["name"]);
-  // document.getElementsByTagName("h3")[0].appendChild(centerPointOutput);
-  // const nearestPref = getNearestPref(centerPoint); //centerPointに一番近い県名を出す
-  // alert(nearestPref.name);
-  console.log(nearestPref);
 
 })
 
 // 地域のボタンを押すと県名のボタンリストがでる
-// const prefListbutton = document.getElementById("tohoku");
 const areaButton = document.getElementsByClassName("area");
 for (const area of areaButton) { //全てのボタンに設定する
 
@@ -121,82 +103,58 @@ for (const area of areaButton) { //全てのボタンに設定する
     prefList.style.display = "block"; // 県リストのボタン表示
     overlay.style.display = "block"; // 黒塗り実施
 
+    // 県名のボタンを押すと表示がリセットされる
+    // (表示される県名を areaName で指定しているため、ここでaddEvent)
+    prefList.addEventListener("click", function(){
+      prefList.style.display = "none"; // 県リストのボタン表示
+      overlay.style.display = "none"; // 黒塗り実施
+    })
 
-    function getPrefName(){
-      console.log(pref.innerText); //押した県名が取得できる
-      checkCondition();
-      // checkCondition機能は何人目が未記入かを返すので、未記入のフォームに都道府県を入れる
-      select[checkCondition() - 1].value = pref.innerText;
-
-      //画面を戻す
-      prefList.style.display = "none";
-      overlay.style.display = "none"; 
-      pref.removeEventListener(getPrefName());
-      checkCondition();
-    }
-
-
-    //それぞれの県ボタンに機能を付与する
-    for (const pref of prefList.getElementsByTagName("button")) {
-      pref.addEventListener("click", function(){
-        console.log(pref.innerText); //押した県名が取得できる
-        checkCondition();
-        // checkCondition機能は何人目が未記入かを返すので、未記入のフォームに都道府県を入れる
-        select[checkCondition() - 1].value = pref.innerText;
-
-        //画面を戻す
-        prefList.style.display = "none";
-        overlay.style.display = "none"; 
-        pref.removeEventListener()
-        checkCondition();
-      })
-
-      checkCondition();
-    }
-    // for ()
-
-    // prefListbutton.style.display = "block";
+    overlay.addEventListener("click", function(){
+      prefList.style.display = "none"; // 県リストのボタン表示
+      overlay.style.display = "none"; // 黒塗り実施
+    })
 
   })
 }
 
+const prefList = document.getElementById("select-button"); // 押した地方の県リスト
+//それぞれの県ボタンに機能を付与する
+for (const pref of prefList.getElementsByTagName("button")) {
+  pref.addEventListener("click", function prefButton(){
+    // checkCondition機能は何人目が未記入かを返すので、未記入のフォームに都道府県を入れる
+    select[checkCondition() - 1].value = pref.innerText;
+  
+    checkCondition();
+  })
+}
 
 // 地図から選択する際に、下のフォームの中から-選択してください-のある場所が何人目か調べる
 function checkCondition() {
   let num = 1
   for (const selectBoxData of select){
     if (selectBoxData.value === "-選択してください-") {
-      console.log(`${num}人目が未記入`)
       document.getElementById("textbox").innerText = `${num}人目の都道府県を選択してください`;
       return num;
     } else {
-      console.log(selectBoxData);
       selectBoxData.removeEventListener("click",copyForm)
       num++;
     }
   } 
   copyForm();
-  // const newForm = formTemprate.cloneNode(true); 
-  // forms[num].appendChild(newForm);
 }
-console.log(formTemprate);
-console.log(forms[1]);
-const newForm = formTemprate.cloneNode(true);
-console.log(newForm);
+
 
 function copyFormTest(num) {
   const newForm = formTemprate.cloneNode(true); 
   forms[num].appendChild(newForm);
   select[num].addEventListener("click", copyForm) //copyform機能を付け足す
   select[num].addEventListener("click", checkCondition) //copyform機能を付け足す
-  // select[i - 1].removeEventListener("click",copyForm)
-  // console.log(forms[i].getElementsByTagName("label")[0].innerText);
-  // forms[i].getElementsByTagName("label")[0].innerText = `${i + 1}人目`;
-  // console.log(select[i].value)
 }
 
 
-// フォームを入れると下のフォームが増える formTemprateを使う
+
+// フォームを入れると下のフォームが増える
 let i = 1;
 function copyForm() {
   const newForm = forms[i].cloneNode(true); 
@@ -205,14 +163,10 @@ function copyForm() {
   select[i].addEventListener("click", copyForm) //copyform機能を付け足す
   select[i].addEventListener("click", checkCondition) //copyform機能を付け足す
   select[i - 1].removeEventListener("click",copyForm)
-  console.log(forms[i].getElementsByTagName("label")[0].innerText);
   forms[i].getElementsByTagName("label")[0].innerText = `${i + 1}人目`;
-  console.log(select[i].value)
   checkCondition()
 }
-console.log(select[i].value);
 
-select[i].value !== "-選択してください-"
 
 //最初にcopyform機能を2人目に入れておく
 select[1].addEventListener("click", copyForm); 
@@ -220,6 +174,8 @@ select[1].addEventListener("click", copyForm);
 //最初に1人目と2人目にcheckCondition機能を入れておく
 select[0].addEventListener("click", checkCondition) 
 select[1].addEventListener("click", checkCondition) 
+
+
 
 // 取得した座標から出力する
 function output(centerPoint, nearestPref) {
@@ -236,16 +192,6 @@ function output(centerPoint, nearestPref) {
 }
 
 
-
-
-// function copyForm() {
-//   const newForm = formTemprate.cloneNode(true); 
-//   console.log(newForm);
-//   forms[i].appendChild(newForm);
-// }
-// console.log(forms[0].innerHTML);
-// console.log(select[0].innerHTML);
-// copyForm;
 
 
 
@@ -275,12 +221,6 @@ function selectPref() {
 // 都道府県リストを、locationsではなくエクセルから取る ⇒ 市町村レベルに持っていく
 // HTMLで日本地図をクリックすると都道府県が取得できるようにする
 // google mapで県Aから県Bまでの交通手段毎の所要時間を取得して、距離だけでなく所要時間で比較できるようにする
-
-
-
-// サイトの選択項目から、都道府県の配列を得る
-// ["愛知県", "大阪府"]みたいな
- 
 
 
 //都道府県の名前の配列から、それら都道府県の中心座標を得る getCenterPoint

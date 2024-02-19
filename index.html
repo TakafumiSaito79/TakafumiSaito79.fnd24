@@ -14,6 +14,8 @@
     <h2> ツールの説明</h2>
     <p>複数人の住所を入力すると、それぞれの住所の<b>中心座標</b>と<b>そこから一番近い県</b>を出力します。</p>
     <p>遠方の友達と遊ぶ時、どこで集まれば一番平等かを算出できるので、同窓会の場所選びなどで使ってみてください。</p>
+    <p>下図の日本地図から都道府県を選択すれば、下のフォームにリストアップできます。</p>
+    <p>フォームから直接入力もできます。</p>
 
     <div class="japan_map">
       <img src="JapanMap.png">
@@ -29,7 +31,7 @@
 
       <div id = overlay></div>
 
-      <div class="select-button">
+      <div id="select-button">
 
         <div class="pref-list" id="tohoku-list">
           <button>北海道</button>
@@ -106,7 +108,7 @@
 
     </div>
 
-    <h2 id="formList">
+    <h2 id="form-list">
 
     <form>
       <!-- <label for = "pref-select">1人目</label> -->

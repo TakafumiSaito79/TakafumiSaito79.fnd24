@@ -72,11 +72,11 @@ body {
     font-size: 100%;
 }
 
-.select-button{
+#select-button{
     left: 20%;
 }
 
-.select-button div{
+#select-button div{
     display: none;
     position: absolute;
     top:40%;
