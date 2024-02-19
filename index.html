@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title> 最終課題 </title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+
+   <body>
+    <h1> 集合場所決めるツール </h1>
+
+    <h2> ツールの説明</h2>
+    <p>複数人の住所を入力すると、それぞれの住所の<b>中心座標</b>と<b>そこから一番近い県</b>を出力します。</p>
+    <p>遠方の友達と遊ぶ時、どこで集まれば一番平等かを算出できるので、同窓会の場所選びなどで使ってみてください。</p>
+
+    <div class="japan_map">
+      <img src="JapanMap.png">
+      <p id="textbox">1人目の都道府県を選択してください</p>
+      <button id="tohoku">北海道・東北</button>
+      <button id="kanto">関東</button>
+      <button id="hokuriku">北陸</button>
+      <button id="chubu">中部</button>
+      <button id="kinki">近畿</button>
+      <button id="chugoku">中国</button>
+      <button id="shikoku">四国</button>
+      <button id="kyushu">九州・沖縄</button>
+    </div>
+
+    <form>
+      <!-- <label for = "pref-select">1人目</label> -->
+      <label>1人目</label>
+        <select name="prefecture" id = "pref-select">
+          <option>-選択してください-</option>
+          <option>北海道</option>
+          <option>青森県</option>
+          <option>岩手県</option>
+          <option>宮城県</option>
+          <option>秋田県</option>
+          <option>山形県</option>
+          <option>福島県</option>
+          <option>茨城県</option>
+          <option>栃木県</option>
+          <option>群馬県</option>
+          <option>埼玉県</option>
+          <option>千葉県</option>
+          <option>東京都</option>
+          <option>神奈川県</option>
+          <option>新潟県</option>
+          <option>富山県</option>
+          <option>石川県</option>
+          <option>福井県</option>
+          <option>山梨県</option>
+          <option>長野県</option>
+          <option>岐阜県</option>
+          <option>静岡県</option>
+          <option>愛知県</option>
+          <option>三重県</option>
+          <option>滋賀県</option>
+          <option>京都府</option>
+          <option>大阪府</option>
+          <option>兵庫県</option>
+          <option>奈良県</option>
+          <option>和歌山県</option>
+          <option>鳥取県</option>
+          <option>島根県</option>
+          <option>岡山県</option>
+          <option>広島県</option>
+          <option>山口県</option>
+          <option>徳島県</option>
+          <option>香川県</option>
+          <option>愛媛県</option>
+          <option>高知県</option>
+          <option>福岡県</option>
+          <option>佐賀県</option>
+          <option>長崎県</option>
+          <option>熊本県</option>
+          <option>大分県</option>
+          <option>宮崎県</option>
+          <option>鹿児島県</option>
+          <option>沖縄県</option>
+        </select></br>
+    </form>
+
+    <form>
+      <!-- <label for = "pref-select">1人目</label> -->
+      <label>2人目</label>
+        <select name="prefecture" id = "pref-select">
+          <option>-選択してください-</option>
+          <option>北海道</option>
+          <option>青森県</option>
+          <option>岩手県</option>
+          <option>宮城県</option>
+          <option>秋田県</option>
+          <option>山形県</option>
+          <option>福島県</option>
+          <option>茨城県</option>
+          <option>栃木県</option>
+          <option>群馬県</option>
+          <option>埼玉県</option>
+          <option>千葉県</option>
+          <option>東京都</option>
+          <option>神奈川県</option>
+          <option>新潟県</option>
+          <option>富山県</option>
+          <option>石川県</option>
+          <option>福井県</option>
+          <option>山梨県</option>
+          <option>長野県</option>
+          <option>岐阜県</option>
+          <option>静岡県</option>
+          <option>愛知県</option>
+          <option>三重県</option>
+          <option>滋賀県</option>
+          <option>京都府</option>
+          <option>大阪府</option>
+          <option>兵庫県</option>
+          <option>奈良県</option>
+          <option>和歌山県</option>
+          <option>鳥取県</option>
+          <option>島根県</option>
+          <option>岡山県</option>
+          <option>広島県</option>
+          <option>山口県</option>
+          <option>徳島県</option>
+          <option>香川県</option>
+          <option>愛媛県</option>
+          <option>高知県</option>
+          <option>福岡県</option>
+          <option>佐賀県</option>
+          <option>長崎県</option>
+          <option>熊本県</option>
+          <option>大分県</option>
+          <option>宮崎県</option>
+          <option>鹿児島県</option>
+          <option>沖縄県</option>
+        </select></br>
+    </form>
+    <!-- <form>
+      <label for = "pref-select">2人目</label>
+        <select name="prefecture" id = "pref-select">
+        <option>-選択してください-</option>
+        <option>北海道</option>
+        <option>東京都</option>
+        <option>愛知県</option>
+        <option>大阪府</option>
+        <option>福岡県</option>
+        </select>
+
+        
+    </form>
+
+    <form>
+      <label for = "pref-select">3人目</label>
+        <select name="prefecture" id = "pref-select">
+        <option>-選択してください-</option>
+        <option>北海道</option>
+        <option>東京都</option>
+        <option>愛知県</option>
+        <option>大阪府</option>
+        <option>福岡県</option>
+        </select>
+
+        
+    </form>
+
+    <form>
+      <label for = "pref-select">4人目</label>
+        <select name="prefecture" id = "pref-select">
+        <option>-選択してください-</option>
+        <option>北海道</option>
+        <option>東京都</option>
+        <option>愛知県</option>
+        <option>大阪府</option>
+        <option>福岡県</option>
+        </select>
+        <p><input type="button" id="button" value="決定">あああ</p>
+        
+    </form> -->
+
+    <h3><input type="button" id="startCalc" value="計算開始"></h3>
+
+   </body>
+
+   <script type="text/javascript" src="script.js"></script>
+</html>
+
+<!-- 以下の内容を入れてください。
+自分の名前を <h1> タグに入れる。
+職業・仕事（その他好きな肩書）を <h2> タグに入れる。
+住んでいるところを <h3> タグに入れる。
+趣味や興味のあること複数を順序なしのリストで表示する。
+自分の写真を入れる。画像ファイルは今編集しているHTMLファイルと
+同じフォルダーに入れましょう。
+（タグの種類、タグの中に入れる「属性」の書き方、
+そして幅の指定の仕方も調べてみましょう。） -->
+

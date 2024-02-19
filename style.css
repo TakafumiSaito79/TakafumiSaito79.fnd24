@@ -1,0 +1,140 @@
+/* まず、style.cssにこのルールを書き入れてください。 */
+body {
+    font-size: 100%;
+  }
+
+/* 日本地図DOM */
+.japan_map{
+    position: relative;
+    /* box-sizing: border-box; */
+    max-height: 30%;
+    width: auto;
+    margin: 0 auto;
+    display: table;
+    background-color: #adf6ff;
+    font-size:200%;
+}
+
+
+#tohoku{
+    position: absolute;
+    top:30%;
+    left:70%;
+    font-size: 100%;
+}
+
+#kanto{
+    position: absolute;
+    top:60%;
+    left:80%;
+    font-size: 100%;
+}
+
+#chubu{
+    position: absolute;
+    top:60%;
+    left:60%;
+    font-size: 100%;
+}
+
+#hokuriku{
+    position: absolute;
+    top:40%;
+    left:60%;
+    font-size: 100%;
+}
+
+#kinki{
+    /* box-sizing: border-box; */
+    position: absolute;
+    top:60%;
+    left:45%;
+    font-size: 100%;
+}
+
+#chugoku{
+    /* box-sizing: border-box; */
+        position: absolute;
+    top:62%;
+    left:33%;
+    margin:0;
+    display: table;
+}
+
+#shikoku{
+    /* box-sizing: border-box; */
+        position: absolute;
+    top:80%;
+    left:33%;
+    margin:0;
+    display: table;
+}
+
+#kyushu{
+    /* box-sizing: border-box; */
+        position: absolute;
+    top:70%;
+    left:10%;
+    margin:0;
+    display: table;
+}
+
+/* #kyushu{
+    /* box-sizing: border-box; */
+    position: absolute;
+    top:70%;
+    left:10%;
+    margin:0;
+    display: table;
+}
+ */
+
+
+
+#textbox{
+    position: absolute;
+    top:0%;
+    left:15%;
+    font-size:100%;
+    color: red;
+}
+  
+  /* ここにルールを足していきましょう。*/
+h1 {
+    margin: auto;
+}
+
+p {
+    margin: auto;
+    background-color:yellow;
+}
+
+.awesome {
+    font-weight: bold;
+}
+
+.great {
+    font-weight: bold;
+}
+
+#d {
+    color: red;
+}
+
+span {
+    font-size: 50%;
+    color: green;
+}
+
+.great {
+    font-size: 50%;
+}
+
+/* この演習では CSS セレクタ と プロパティ を扱う練習をします。 HTML ファイルは変更しません。
+a の文字色を青色にしてください。
+b, c, d, e, f の背景色を黄色にしてください。
+c と f を太文字にしてください。
+d の文字色を赤色にしてください。
+b と e のフォントサイズを 50% にしてください。
+e の文字色を緑色にしてください。
+完成すると以下のようになります。 */
