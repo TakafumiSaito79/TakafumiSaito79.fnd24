@@ -118,10 +118,38 @@ form{
 
 p {
     margin: auto;
-    font-size: 150%;
+    font-size: 100%;
 }
 
 h3 {
     margin: auto;
     font-size: 200%;
+}
+
+
+/* ↓開発メモ・反省点 */
+
+h4{
+    color:white;
+    font-size: 200%;
+}
+
+#memo{
+    display: none;
+    font-size: 20px;
+}
+
+#hokkaido-town{
+    display: none;
+}
+
+#pref-select-test{
+    font-size: 30px;
+}
+select{
+    font-size: 30px;
+}
+
+.blue{
+    color: blue;
 }

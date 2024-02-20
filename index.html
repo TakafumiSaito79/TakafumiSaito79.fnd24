@@ -223,184 +223,187 @@
 
     <h3><input type="button" id="startCalc" value="計算開始"></h3>
 
-   <h4>開発メモ</h4>
+
+
+
+    <!-- ↓開発・反省点 -->
+
+    <h4>開発メモ（追加でやりたかったこと）</h4>
       <div id="memo">
-        <p>ざっくり都道府県庁の位置を各県の座標にしているが、ざっくりすぎる</p>
-        <p>市町村まで入力できるようにしたい(今は県名をユニークなIDにしているが、市町村だと同名のものが出てくる＋増減の可能性あるので数字でIDを振る)</p>
-        <label>N人目</label>
-        <select name="prefecture" id = "pref-select-test">
-          <option>-選択してください-</option>
-          <option>北海道</option>
-          <option>青森県</option>
-          <option>岩手県</option>
-          <option>宮城県</option>
-          <option>秋田県</option>
-          <option>山形県</option>
-          <option>福島県</option>
-          <option>茨城県</option>
-          <option>栃木県</option>
-          <option>群馬県</option>
-          <option>埼玉県</option>
-          <option>千葉県</option>
-          <option>東京都</option>
-          <option>神奈川県</option>
-          <option>新潟県</option>
-          <option>富山県</option>
-          <option>石川県</option>
-          <option>福井県</option>
-          <option>山梨県</option>
-          <option>長野県</option>
-          <option>岐阜県</option>
-          <option>静岡県</option>
-          <option>愛知県</option>
-          <option>三重県</option>
-          <option>滋賀県</option>
-          <option>京都府</option>
-          <option>大阪府</option>
-          <option>兵庫県</option>
-          <option>奈良県</option>
-          <option>和歌山県</option>
-          <option>鳥取県</option>
-          <option>島根県</option>
-          <option>岡山県</option>
-          <option>広島県</option>
-          <option>山口県</option>
-          <option>徳島県</option>
-          <option>香川県</option>
-          <option>愛媛県</option>
-          <option>高知県</option>
-          <option>福岡県</option>
-          <option>佐賀県</option>
-          <option>長崎県</option>
-          <option>熊本県</option>
-          <option>大分県</option>
-          <option>宮崎県</option>
-          <option>鹿児島県</option>
-          <option>沖縄県</option>
-        </select>
+        <ol>
+          <li>
+            <p>ざっくり都道府県庁の位置を各県の座標にしているが、ざっくりすぎる。</p>
+            <p>市町村まで入力できるようにしたい(今は県名をユニークなIDにしているが、市町村だと同名のものが出てくる＋増減の可能性あるので数字でIDを振る)</p>
+            <label class="blue">N人目</label>
+            <select id = "pref-select-test" class="blue">
+              <option>-選択してください-</option>
+              <option>北海道</option>
+              <option>青森県</option>
+              <option>岩手県</option>
+              <option>宮城県</option>
+              <option>秋田県</option>
+              <option>山形県</option>
+              <option>福島県</option>
+              <option>茨城県</option>
+              <option>栃木県</option>
+              <option>群馬県</option>
+              <option>埼玉県</option>
+              <option>千葉県</option>
+              <option>東京都</option>
+              <option>神奈川県</option>
+              <option>新潟県</option>
+              <option>富山県</option>
+              <option>石川県</option>
+              <option>福井県</option>
+              <option>山梨県</option>
+              <option>長野県</option>
+              <option>岐阜県</option>
+              <option>静岡県</option>
+              <option>愛知県</option>
+              <option>三重県</option>
+              <option>滋賀県</option>
+              <option>京都府</option>
+              <option>大阪府</option>
+              <option>兵庫県</option>
+              <option>奈良県</option>
+              <option>和歌山県</option>
+              <option>鳥取県</option>
+              <option>島根県</option>
+              <option>岡山県</option>
+              <option>広島県</option>
+              <option>山口県</option>
+              <option>徳島県</option>
+              <option>香川県</option>
+              <option>愛媛県</option>
+              <option>高知県</option>
+              <option>福岡県</option>
+              <option>佐賀県</option>
+              <option>長崎県</option>
+              <option>熊本県</option>
+              <option>大分県</option>
+              <option>宮崎県</option>
+              <option>鹿児島県</option>
+              <option>沖縄県</option>
+            </select>
 
-        <select name ="town" id="hokkaido-town">
-          <option>札幌市　中央区</option>
-          <option>札幌市　北区</option>
-          <option>札幌市　東区</option>
-          <option>札幌市　白石区</option>
-          <option>札幌市　豊平区</option>
-          <option>札幌市　南区</option>
-          <option>札幌市　西区</option>
-          <option>札幌市　厚別区</option>
-          <option>札幌市　手稲区</option>
-          <option>札幌市　清田区</option>
-          <option>函館市</option>
-          <option>小樽市</option>
-          <option>旭川市</option>
-          <option>室蘭市</option>
-          <option>釧路市</option>
-          <option>帯広市</option>
-          <option>北見市</option>
-          <option>夕張市</option>
-          <option>岩見沢市</option>
-          <option>網走市</option>
-          <option>留萌市</option>
-          <option>苫小牧市</option>
-          <option>稚内市</option>
-          <option>美唄市</option>
-          <option>芦別市</option>
-          <option>江別市</option>
-          <option>赤平市</option>
-          <option>紋別市</option>
-          <option>士別市</option>
-          <option>名寄市</option>
-          <option>三笠市</option>
-          <option>根室市</option>
-          <option>千歳市</option>
-          <option>滝川市</option>
-          <option>砂川市</option>
-          <option>歌志内市</option>
-          <option>深川市</option>
-          <option>富良野市</option>
-          <option>登別市</option>
-          <option>恵庭市</option>
-          <option>伊達市</option>
-          <option>北広島市</option>
-          <option>石狩市</option>
-          <option>北斗市</option>
-          <option>石狩郡　当別町</option>
-          <option>石狩郡　新篠津村</option>
-          <option>松前郡　松前町</option>
-          <option>松前郡　福島町</option>
-          <option>上磯郡　知内町</option>
-          <option>上磯郡　木古内町</option>
-          <option>亀田郡　七飯町</option>
-          <option>茅部郡　鹿部町</option>
-          <option>茅部郡　森町</option>
-          <option>二海郡　八雲町</option>
-          <option>山越郡　長万部町</option>
-          <option>檜山郡　江差町</option>
-          <option>檜山郡　上ノ国町</option>
-          <option>檜山郡　厚沢部町</option>
-          <option>爾志郡　乙部町</option>
-          <option>奥尻郡　奥尻町</option>
-          <option>瀬棚郡　今金町</option>
-          <option>久遠郡　せたな町</option>
-          <option>島牧郡　島牧村</option>
-          <option>寿都郡　寿都町</option>
-          <option>寿都郡　黒松内町</option>
-          <option>磯谷郡　蘭越町</option>
-          <option>虻田郡　ニセコ町</option>
-          <option>虻田郡　真狩村</option>
-          <option>虻田郡　留寿都村</option>
-          <option>虻田郡　喜茂別町</option>
-          <option>虻田郡　京極町</option>
-          <option>虻田郡　倶知安町</option>
-          <option>岩内郡　共和町</option>
-          <option>岩内郡　岩内町</option>
-          <option>古宇郡　泊村</option>
-          <option>古宇郡　神恵内村</option>
-          <option>積丹郡　積丹町</option>
-          <option>古平郡　古平町</option>
-          <option>余市郡　仁木町</option>
-          <option>余市郡　余市町</option>
-          <option>余市郡　赤井川村</option>
-          <option>空知郡　南幌町</option>
-          <option>空知郡　奈井江町</option>
-          <option>空知郡　上砂川町</option>
-          <option>夕張郡　由仁町</option>
-          <option>夕張郡　長沼町</option>
-          <option>夕張郡　栗山町</option>
-          <option>樺戸郡　月形町</option>
-          <option>樺戸郡　浦臼町</option>
-          <option>樺戸郡　新十津川町</option>
-          <option>雨竜郡　妹背牛町</option>
-          <option>雨竜郡　秩父別町</option>
-          <option>雨竜郡　雨竜町</option>
-          <option>雨竜郡　北竜町</option>
-          <option>雨竜郡　沼田町</option>
-          <option>上川郡　鷹栖町</option>
-        </select>
+            <select name ="town" id="hokkaido-town" class="blue">
+              <option>札幌市　中央区</option>
+              <option>札幌市　北区</option>
+              <option>札幌市　東区</option>
+              <option>札幌市　白石区</option>
+              <option>札幌市　豊平区</option>
+              <option>札幌市　南区</option>
+              <option>札幌市　西区</option>
+              <option>札幌市　厚別区</option>
+              <option>札幌市　手稲区</option>
+              <option>札幌市　清田区</option>
+              <option>函館市</option>
+              <option>小樽市</option>
+              <option>旭川市</option>
+              <option>室蘭市</option>
+              <option>釧路市</option>
+              <option>帯広市</option>
+              <option>北見市</option>
+              <option>夕張市</option>
+              <option>岩見沢市</option>
+              <option>網走市</option>
+              <option>留萌市</option>
+              <option>苫小牧市</option>
+              <option>稚内市</option>
+              <option>美唄市</option>
+              <option>芦別市</option>
+              <option>江別市</option>
+              <option>赤平市</option>
+              <option>紋別市</option>
+              <option>士別市</option>
+              <option>名寄市</option>
+              <option>三笠市</option>
+              <option>根室市</option>
+              <option>千歳市</option>
+              <option>滝川市</option>
+              <option>砂川市</option>
+              <option>歌志内市</option>
+              <option>深川市</option>
+              <option>富良野市</option>
+              <option>登別市</option>
+              <option>恵庭市</option>
+              <option>伊達市</option>
+              <option>北広島市</option>
+              <option>石狩市</option>
+              <option>北斗市</option>
+              <option>石狩郡　当別町</option>
+              <option>石狩郡　新篠津村</option>
+              <option>松前郡　松前町</option>
+              <option>松前郡　福島町</option>
+              <option>上磯郡　知内町</option>
+              <option>上磯郡　木古内町</option>
+              <option>亀田郡　七飯町</option>
+              <option>茅部郡　鹿部町</option>
+              <option>茅部郡　森町</option>
+              <option>二海郡　八雲町</option>
+              <option>山越郡　長万部町</option>
+              <option>檜山郡　江差町</option>
+              <option>檜山郡　上ノ国町</option>
+              <option>檜山郡　厚沢部町</option>
+              <option>爾志郡　乙部町</option>
+              <option>奥尻郡　奥尻町</option>
+              <option>瀬棚郡　今金町</option>
+              <option>久遠郡　せたな町</option>
+              <option>島牧郡　島牧村</option>
+              <option>寿都郡　寿都町</option>
+              <option>寿都郡　黒松内町</option>
+              <option>磯谷郡　蘭越町</option>
+              <option>虻田郡　ニセコ町</option>
+              <option>虻田郡　真狩村</option>
+              <option>虻田郡　留寿都村</option>
+              <option>虻田郡　喜茂別町</option>
+              <option>虻田郡　京極町</option>
+              <option>虻田郡　倶知安町</option>
+              <option>岩内郡　共和町</option>
+              <option>岩内郡　岩内町</option>
+              <option>古宇郡　泊村</option>
+              <option>古宇郡　神恵内村</option>
+              <option>積丹郡　積丹町</option>
+              <option>古平郡　古平町</option>
+              <option>余市郡　仁木町</option>
+              <option>余市郡　余市町</option>
+              <option>余市郡　赤井川村</option>
+              <option>空知郡　南幌町</option>
+              <option>空知郡　奈井江町</option>
+              <option>空知郡　上砂川町</option>
+              <option>夕張郡　由仁町</option>
+              <option>夕張郡　長沼町</option>
+              <option>夕張郡　栗山町</option>
+              <option>樺戸郡　月形町</option>
+              <option>樺戸郡　浦臼町</option>
+              <option>樺戸郡　新十津川町</option>
+              <option>雨竜郡　妹背牛町</option>
+              <option>雨竜郡　秩父別町</option>
+              <option>雨竜郡　雨竜町</option>
+              <option>雨竜郡　北竜町</option>
+              <option>雨竜郡　沼田町</option>
+              <option>上川郡　鷹栖町</option>
+            </select>
+          </li><br>
 
-        <p>座標だと山の中集合になったりして面白いが、実用的ではない</p>
-        <p>移動方法も入力できるようにして、 移動時間 必要金額 も出せるようにしたい</p>
-        <br>
-        <p>各都道府県間の移動時間、距離を予めデータベースとして持っておいて、データベースはGoogleMapから定期的に更新する</p>
-        <p>時間、距離、金額のそれぞれで最も幸福度が高い場所の宿、キャンプ場、飲み屋を提示する</p>
-        <br>
-        <p>作ってからBMCしたら、距離で算出しているサービスは何個かあるが、あまり使われていなそう</p>
-        <p>割り勘サービスのように参加者がそれぞれ入力できるようにする</p>
+          <li>
+            <p>座標だと山の中集合になったりして面白いが、実用的ではない</p>
+            <p>移動方法も入力できるようにして、 <b>移動時間 必要金額</b> も出せるようにしたい</p>
+            <ol type="I" class="blue">  
+              <li>各都道府県間の、車、公共交通機関の移動時間、距離を予めデータベースとして持っておいて、データベースはGoogleMapから定期的に更新する</li>
+              <li>時間、距離、金額のそれぞれで最も幸福度が高い場所</li>
+            </ol>
+          </li><br>
+
+          <li>
+            <p>作ってからBMCしたら、同様に場所を指定して座標の重心を取るサービスは何個かあった</p>
+            <p>今回は学習の意図のためBMCなしで作ったが、実際に開発する際はBMCをするよう気をつける</p>
+          </li>
+        </ol>
       </div>
 
-     
    </body>
 
    <script type="text/javascript" src="script.js"></script>
 </html>
-
-<!-- 以下の内容を入れてください。
-自分の名前を <h1> タグに入れる。
-職業・仕事（その他好きな肩書）を <h2> タグに入れる。
-住んでいるところを <h3> タグに入れる。
-趣味や興味のあること複数を順序なしのリストで表示する。
-自分の写真を入れる。画像ファイルは今編集しているHTMLファイルと
-同じフォルダーに入れましょう。
-（タグの種類、タグの中に入れる「属性」の書き方、
-そして幅の指定の仕方も調べてみましょう。） -->
 

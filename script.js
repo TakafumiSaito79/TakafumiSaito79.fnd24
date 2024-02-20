@@ -145,15 +145,6 @@ function checkCondition() {
 }
 
 
-function copyFormTest(num) {
-  const newForm = formTemprate.cloneNode(true); 
-  forms[num].appendChild(newForm);
-  select[num].addEventListener("click", copyForm) //copyform機能を付け足す
-  select[num].addEventListener("click", checkCondition) //copyform機能を付け足す
-}
-
-
-
 // フォームを入れると下のフォームが増える
 let i = 1;
 function copyForm() {
@@ -210,17 +201,6 @@ function selectPref() {
 
 	document.getElementById("span1").textContent = str; 
 }
-
-
-// 狙う顧客
-// 社会人になり、全国に分散した後で大学の同窓会をどこでやるか？を決める時の指標にする
-// 困りごと
-// 東京ばかりだと
-
-// やりたいこと
-// 都道府県リストを、locationsではなくエクセルから取る ⇒ 市町村レベルに持っていく
-// HTMLで日本地図をクリックすると都道府県が取得できるようにする
-// google mapで県Aから県Bまでの交通手段毎の所要時間を取得して、距離だけでなく所要時間で比較できるようにする
 
 
 //都道府県の名前の配列から、それら都道府県の中心座標を得る getCenterPoint
@@ -281,9 +261,36 @@ function getNearestPref(centerPoint) {
   return nearestPref;
 }
 
+const memo = document.getElementById("memo");
+const memoOpener = document.getElementsByTagName("h4")[0];
 
+memoOpener.addEventListener("mouseover", function(){
+  memoOpener.style.color = "red";
+})
 
+function mouseoutMemoOpener(){
+  memoOpener.style.color = "white";
+}
 
+memoOpener.addEventListener("mouseout",mouseoutMemoOpener); 
 
+memoOpener.addEventListener("click", function(){
+  memo.style.display = "block";
+  memoOpener.style.color = "red";  
+  memoOpener.removeEventListener("mouseout", mouseoutMemoOpener);
+})
 
+// for (const town of hokkaidoTowns){
+// let townSelect = document.createElement("option");
+// townSelect.textContent = town;
+// }
+
+const formSample = document.getElementById("pref-select-test");
+formSample.addEventListener("click", function(){
+  console.log(formSample.value);
+  if (formSample.value === "北海道") {
+    document.getElementById("hokkaido-town").style.display = "inline";
+  }
+  document.getElementById("town-select-test").appendChild(town);
+})
 
