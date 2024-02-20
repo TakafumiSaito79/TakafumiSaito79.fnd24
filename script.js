@@ -261,6 +261,11 @@ function getNearestPref(centerPoint) {
   return nearestPref;
 }
 
+
+
+
+// ↓開発メモ・反省点
+
 const memo = document.getElementById("memo");
 const memoOpener = document.getElementsByTagName("h4")[0];
 
@@ -280,10 +285,7 @@ memoOpener.addEventListener("click", function(){
   memoOpener.removeEventListener("mouseout", mouseoutMemoOpener);
 })
 
-// for (const town of hokkaidoTowns){
-// let townSelect = document.createElement("option");
-// townSelect.textContent = town;
-// }
+
 
 const formSample = document.getElementById("pref-select-test");
 formSample.addEventListener("click", function(){
